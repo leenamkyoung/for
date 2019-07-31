@@ -1,0 +1,283 @@
+{% load staticfiles %}
+<!--스새틱 파일 쓰는 테그방법 : img src="{% static 'ddd.jpg' %}" hight=400 alt="00사진"-->
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+{% load staticfiles %}
+
+<style>
+  .a {
+   background: linear-gradient(to right, #556270, #ff6b6b);
+  }
+  .card{
+    weight=""
+  }
+
+</style>
+
+</head>
+
+<body>
+
+    <!--nav시작-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">for-interior</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li>
+                  </ul>
+                </div>
+        </nav>
+    <!--nav끝-->
+
+    <!--바탕시작-->
+
+<div class="a">
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center">
+          
+        <div class="col-md-5 p-lg-5 mx-auto my-5">
+          <h1 class="display-4 font-weight-normal">Punny headline</h1>
+          <p class="lead font-weight-normal">And an even wittier subheading to boot. Jumpstart your marketing efforts with this example based on Apple’s marketing pages.</p>
+          <a class="btn btn-outline-secondary" href="#">Coming soon</a>
+        </div>
+        <div class="product-device shadow-sm d-none d-md-block"></div>
+        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+    </div>
+</div>
+<!--대표 시공 사례 시작-->
+<br>
+<br>
+<h1 class="text-center">전문가의 시공 사례</h1>
+<br>
+<br>
+<div class="d-flex justify-content-around">
+<!--1-->
+      <div class="col-md-3">
+            <div class="card mb-4 shadow-sm">
+              <img src="{% static 'big.jpg' %}" height="370">
+            <div class="card-body">
+                <p class="card-text"></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    
+                    <a href="https://blog.naver.com/lg1044" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">사진이 포함된 글 읽으러 가기</a>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+<!--2-->
+      <div class="col-md-3">
+            <div class="card mb-4 shadow-sm">
+              <img src="{% static '거실1.jpg' %}" height="370">
+              <div class="card-body">
+                <p class="card-text"></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    
+                    <a href="https://blog.naver.com/lg1044/221588398462" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">사진이 포함된 글 읽으러 가기</a>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+<!--3-->
+      <div class="col-md-3">
+            <div class="card mb-4 shadow-sm">
+              <img src="{% static '신발장,현관 (1).jpg' %}" height="370">
+              <div class="card-body">
+                <p class="card-text"></p>
+                <div class="d-flex justify-content-between align-items-center">
+                   <div class="btn-group">
+                    
+                    <a href="https://blog.naver.com/lg1044/221582332250" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">사진이 포함된 글 읽으러 가기</a>
+                  
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div> 
+    </div>
+    <br>
+    <br>
+    <!--더보기 링크 얘는 포트폴리오로-->
+    <div class="btn-group">
+      <a href="{% url 'portfolio' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" >시공사례 더보러가기</a>
+    </div>
+    <br>
+    <br>
+    <br>
+      <!--대표 시공 사례 끝-->
+
+      <!--공간별 인테리어 시작-->
+
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+
+<br>
+<h1 class="text-center"> 공간별 인테리어 보기</h1>
+<br>
+<br>
+
+    <div class="d-flex justify-content-around">
+
+        <div class="card" style="width: 30px height: 18px ;">
+          <img style="width: 250px;" src="{% static 'bed.png' %}">
+            <div class="card-body">
+              <p class="card-text">침실</p>
+            </div>
+        </div>
+
+      <div class="card" style="width: 30px height: 18px ;">
+            <img src="{% static 'bathtub.png' %}" alt="..." style="width: 250px;">
+            <div class="card-body">
+              <p class="card-text">욕실</p>
+            </div>
+      </div>
+
+      <div class="card" style="width: 30px height: 18px ;">
+            <img src="{% static 'livingroom.png' %}" class="card-img-top" alt="..." style="width: 250px;">
+            <div class="card-body">
+              <p class="card-text">거실</p>
+            </div>
+      </div>
+
+      <div class="card" style="width: 30px height: 18px ;">
+            <img src="{% static '주방.png' %}" class="card-img-top" alt="..." style="width: 250px;">
+            <div class="card-body">
+              <p class="card-text">주방</p>
+            </div>
+      </div>
+
+    </div>
+
+      <br>
+
+    <div class="d-flex justify-content-around">
+
+      <div class="card" style="width: 30px height: 18px ;">
+            <img src="{% static 'desk.png' %}" class="card-img-top" alt="..." style="width: 250px;">
+            <div class="card-body">
+              <p class="card-text">자녀방</p>
+            </div>
+      </div>
+
+      <div class="card" style="width: 30px height: 18px ;">
+            <img src="{% static 'door.png' %}" class="card-img-top" alt="..." style="width: 250px;">
+            <div class="card-body">
+              <p class="card-text">현관 & 중문</p>
+            </div>
+      </div>
+
+      <div class="card" style="width: 30px height: 18px ;">
+            <img src="{% static 'costume-clothes.png' %}" class="card-img-top" alt="..." style="width: 250px;">
+            <div class="card-body">
+              <p class="card-text">드레스룸</p>
+            </div>
+      </div>
+
+      <div class="card" style="width: 30px height: 18px ;">
+            <img src="{% static 'balcony.png' %}" class="card-img-top" alt="..." style="width: 250px;">
+            <div class="card-body">
+              <p class="card-text">베란다 및 샷시</p>
+            </div>
+      </div>
+
+    </div>
+
+</div>
+
+      <!--공간별 인테리어 끝-->
+
+
+
+      <!--평수별 인테리어 시작-->
+
+<br>
+<br>
+<h1 class="text-center">Punny headline</h1>
+<br>
+<br>
+<div class="d-flex justify-content-around">
+<!--1-->
+      <div class="col-md-3">
+            <div class="card mb-4 shadow-sm">
+              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+              <div class="card-body">
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  </div>
+                  <small class="text-muted">9 mins</small>
+                </div>
+              </div>
+            </div>
+      </div>
+<!--2-->
+      <div class="col-md-3">
+            <div class="card mb-4 shadow-sm">
+              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+              <div class="card-body">
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  </div>
+                  <small class="text-muted">9 mins</small>
+                </div>
+              </div>
+            </div>
+      </div>
+<!--3-->
+      <div class="col-md-3">
+            <div class="card mb-4 shadow-sm">
+              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+              <div class="card-body">
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  </div>
+                  <small class="text-muted">9 mins</small>
+                </div>
+              </div>
+            </div>
+      </div>
+    
+    </div>
+
+      <!--평수별 인테리어 끝-->
+
+
+      <!--바탕끝-->
+</body>
