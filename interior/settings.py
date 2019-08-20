@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'fi.apps.FiConfig',
-    'portfolio.apps.PortfolioConfig',
+    'part.apps.PartConfig',
+    'py.apps.PyConfig',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'interior.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['interior/fi/templates/base.html'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,13 +122,24 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_DIRS = [
+STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'fi','static')
 ] #현재 스태택 파일이 어디에 있는지
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'part','static')
+]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'portfolio','static')
+]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'py','static')
+]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # 스태틱 파일들이 어디로 모일것인지 쓰는 곳 = static파일에 모와줘라
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# 미디어로 모으는거
 
 MEDIA_URL = '/media/'
+#홈페이지이름 슬레시 어쩌구 파일에 대한 값

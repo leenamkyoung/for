@@ -1,0 +1,676 @@
+{% load staticfiles %}
+<head>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <style>
+  @font-face { 
+    /*유토이미지*/
+    font-family: 'BBTreeGB'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGB.woff') format('woff'); font-weight: normal; font-style: normal;}
+    
+  @font-face { 
+    /*유토이미지l*/
+    font-family: 'BBTreeGL'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGL.woff') format('woff'); font-weight: normal; font-style: normal; 
+    }
+  @font-face { 
+    /*나눔 바른펜*/
+    font-family: 'NanumBarunpen'; 
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBarunpen.woff') format('woff'); 
+    font-weight: normal; 
+    font-style: normal;
+  }
+
+    .main{
+      text-align:center;
+    }
+    .main img{
+      display:block;
+      margin: 0 auto;
+    }
+
+    .open{
+      padding-right:10px;
+      padding-bottom:10px;
+      width: 380px;
+      height: 100%;
+      position: relative;
+    }
+    
+    .open_btn img{
+      width:60px;
+      height:60px;
+      border:10px;
+      margin-left: auto;
+      position: absolute;
+      top: 10;
+      bottom: 0;
+      left: 0;
+      right: 20;
+      z-index: 5;
+    }
+
+    .popup{
+      position:fixed;
+      left: 50%;
+      top: 50%;
+      transform:translate(-50%,-50%);
+      width:700px;
+      height:740px;
+      box-shadow:0 0 10px rgba(0,0,0,0.5);
+      background: #fff;
+      border-radius:5px;
+      text-align: right;
+      padding:20px;
+      display: block;
+      box-sizing: border-box;
+      opacity: 0;
+      transition:all 0.3s;
+      z-index: 2;
+    }
+
+    .popup:target{
+      opacity:1;
+      z-index:6;
+    }
+
+    .popup img{
+      margin:0 auto;
+      padding-top:5px;
+      padding-bottom:22px;
+    }
+
+    .input_blog{
+      padding-top:10px;
+      width:300px;
+      height:40px;
+      background-color:#FD746C;
+      border-radius: 30px;
+      box-shadow:0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .input_blog h5{
+      color:white;
+      text-decoration:none;
+      text-align: center;
+
+    }
+
+    .input_blog:hover{
+      background-color:#2C3E50;
+      text-decoration: none;
+    }
+
+    .input_cash{
+      padding-top:10px;
+      width:300px;
+      height:40px;
+      background-color:#FD746C;
+      border-radius: 30px;
+      box-shadow:0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .input_cash h5{
+      color:white;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .input_cash:hover{
+      background-color:#2C3E50;
+      text-decoration:none;
+    }
+
+
+    
+    #topMenu{
+        height: 150;
+        width: 2500px;
+        border-width : 4px soild;
+        z-index:4;
+    }
+
+     #topMenu ul li{
+        height: 100px;
+        list-style: none;
+        color: #FF6B6B;
+        background-color: white;
+        float: left;
+        line-height: 100PX;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    #topMenu .menuLink{
+        text-decoration: none;
+        color: black;
+        display: block;
+        width: 150px;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: "Trebuchet MS", Dotum, Arial;
+    }
+
+    #topMenu .menuLink:hover{
+        color: #FF6B6B;
+        border-bottom-width:5px;  
+        border-bottom-color: #FF6B6B;
+        border-bottom-style:solid; 
+        padding-bottom:18px;
+    }  
+  .menuLink h4{
+    font-family: 'BBTreeGL';
+    padding-top:40px;
+  }            
+
+  .navbarlist{
+    font-family: 'BBTreeGL';
+    font-size: 27px;
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top:6px;
+  }
+
+  .dropdown-menu{
+    font-family: 'BBTreeGL';
+    font-size: 20px;
+  }
+  
+    
+  .estimate{
+    width:200px;
+    height:60px;
+    background-color:#FD746C;
+    border: none;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px;
+    cursor: pointer;
+    border-radius:30px;
+    text-decoration:none;
+    text-align: center;
+    line-height:10px;
+  }
+
+  .estimate:hover{
+    background-color: #2C3E50;
+    text-decoration:none;
+    color: white;
+
+  }
+
+  .estimate h3{
+    text-decoration:none;
+  }
+
+
+    </style>
+</head>
+
+<body>
+
+    <!--nav시작-->
+        <nav class="navbar navbar-expand-lg navbar-fixed-top navbar-light" style="background-color: #29323c;">
+                <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static '로고왕.png' %}" width="100%" height="75"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+
+                    <div class="navbarlist">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="{% url 'home' %}" style="color:white;">전문가의 시공 사례<span class="sr-only">(current)</span></a>
+                    </li>
+                    </div>
+
+                    <div class="navbarlist">
+                    <li class="nav-item dropdown active">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;" >
+                        공간별 인테리어<span class="sr-only">(current)</span>
+                      </a>
+
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'kitchen' %}">주방</a>
+                        <a class="dropdown-item" href="{% url 'livingroom' %}">거실</a>
+                        <a class="dropdown-item" href="{% url 'door' %}">중문/현관</a>
+                        <a class="dropdown-item" href="{% url 'bed' %}">침실</a>
+                        <a class="dropdown-item" href="{% url 'bath' %}">욕실</a>
+                        <a class="dropdown-item" href="{% url 'dressroom' %}">드레스룸</a>
+                        <a class="dropdown-item" href="{% url 'veranda' %}">베란다/샷시</a>
+                      </div>
+                      </div>
+
+                      <div class="navbarlist">
+                      <li class="nav-item dropdown active">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;" >
+                        평수별 인테리어<span class="sr-only">(current)</span>
+                      </a>
+
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'twenty' %}">20PY</a>
+                        <a class="dropdown-item" href="{% url 'thirty' %}">30PY</a>
+                        <a class="dropdown-item" href="{% url 'forty' %}">40PY</a>
+                      </div>
+                      </div>
+
+                      <div class="estimate">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfaOkHiOLS1VnZdJSc2g-OAILB42L3DHlxhqnqgwnwJvqf0fg/viewform?usp=sf_link" target="_blank"></a><h4>견적문의</h4>
+                      </div>
+                  
+
+                  </ul>
+                </div>
+        </nav>
+    <!--nav끝-->
+
+
+<!--opening start-->
+
+<div class="main">
+  <img src="{%static '1616.png'%}" width="100%" height="420">
+</div>
+
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+<!--opening the end-->
+
+
+<!--suv-nav start-->
+
+<nav id="topMenu">
+
+    <ul>
+            <li><a class="menuLink" href="{% url 'bed'%}"><h4>침실</h4></a></li>
+            <li><a class="menuLink" href="{% url 'bath'%}"><h4>욕실</h4></a></li>
+            <li><a class="menuLink" href="{% url 'livingroom'%}"><h4>거실</h4></a></li>
+            <li><a class="menuLink" href="{% url 'kitchen'%}"><h4>주방/다이닝룸</h4></a></li>
+            <li><a class="menuLink" href="{% url 'door'%}"><h4>중문/현관</h4></a></li>
+            <li><a class="menuLink" href="{% url 'dressroom'%}"><h4>드레스룸</h4></a></li>
+            <li><a class="menuLink" href="{% url 'veranda'%}"><h4>베란다/샷시</h4></a></li>
+    </ul>
+</nav>
+
+<!--suv-nav the end-->
+
+<!--한줄 시작-->
+<div class="d-flex justify-content-around">
+<!--첫번째 카드-->
+  <div class="open">
+    <img src="{% static 'l0.jpg'%}" width="100%" height="320" position="absolute">
+      <a href="#pop1" class="open_btn">
+        <img src="{% static '최종돋보기.png'%}">
+      </a>
+  </div>
+
+    <!--첫번째카드 확대됨-->
+
+<div class="popup" id="pop1">
+  <a href="#a"><img src="{% static 'close.png' %}" height="50"></a>
+    <img src="{% static 'l0.jpg'%}" width="100%" height="600px">
+      <div class="d-flex justify-content-around">
+        <a href="#" class="input_blog"><h5>사진이 포함된 인테리어 보기</h5></a>
+        <a href="#" class="input_cash"><h5>이 스타일의 견적 받아보기</h5></a>
+      </div>
+</div>
+<!--첫번째 카드 끝-->
+
+
+<!--두번째 카드-->
+  <div class="open">
+    <img src="{% static 'l1.jpg'%}" width="100%" height="320" position="absolute">
+      <a href="#pop2" class="open_btn">
+        <img src="{% static '최종돋보기.png'%}">
+      </a>
+  </div>
+
+    <!--두번째카드 확대됨-->
+
+<div class="popup" id="pop2">
+  <a href="#a"><img src="{% static 'close.png' %}" height="50"></a>
+    <img src="{% static 'l1.jpg'%}" width="100%" height="600px">
+      <div class="d-flex justify-content-around">
+        <a href="#" class="input_blog"><h5>사진이 포함된 인테리어 보기</h5></a>
+        <a href="#" class="input_cash"><h5>이 스타일의 견적 받아보기</h5></a>
+      </div>      
+</div>
+<!--두번째 카드 끝-->
+
+
+<!--세번째 카드-->
+  <div class="open">
+    <img src="{% static 'l2.jpg'%}" width="100%" height="320" position="absolute">
+      <a href="#pop3" class="open_btn">
+        <img src="{% static '최종돋보기.png'%}">
+      </a>
+  </div>
+
+<!--세번째카드 확대됨-->
+<div class="popup" id="pop3">
+  <a href="#a"><img src="{% static 'close.png' %}" height="50"></a>
+    <img src="{% static 'l2.jpg'%}" width="100%" height="600px">
+      <div class="d-flex justify-content-around">
+        <a href="#" class="input_blog"><h5>사진이 포함된 인테리어 보기</h5></a>
+        <a href="#" class="input_cash"><h5>이 스타일의 견적 받아보기</h5></a>
+      </div>
+</div>
+<!--세번째 카드 끝-->
+
+</div>
+<!--한줄 끝-->
+
+
+
+<!--한줄 시작-->
+<div class="d-flex justify-content-around">
+<!--첫번째 카드-->
+  <div class="open">
+    <img src="{% static 'l3.jpg'%}" width="100%" height="320" position="absolute">
+      <a href="#pop4" class="open_btn">
+        <img src="{% static '최종돋보기.png'%}">
+      </a>
+  </div>
+
+    <!--첫번째카드 확대됨-->
+
+<div class="popup" id="pop4">
+  <a href="#a"><img src="{% static 'close.png' %}" height="50"></a>
+    <img src="{% static 'l3.jpg'%}" width="100%" height="600px">
+      <div class="d-flex justify-content-around">
+        <a href="#" class="input_blog"><h5>사진이 포함된 인테리어 보기</h5></a>
+        <a href="#" class="input_cash"><h5>이 스타일의 견적 받아보기</h5></a>
+      </div>
+</div>
+<!--첫번째 카드 끝-->
+
+
+<!--두번째 카드-->
+  <div class="open">
+    <img src="{% static 'l4.jpg'%}" width="100%" height="320" position="absolute">
+      <a href="#pop5" class="open_btn">
+        <img src="{% static '최종돋보기.png'%}">
+      </a>
+  </div>
+
+    <!--두번째카드 확대됨-->
+
+<div class="popup" id="pop5">
+  <a href="#a"><img src="{% static 'close.png' %}" height="50"></a>
+    <img src="{% static 'l4.jpg'%}" width="100%" height="600px">
+      <div class="d-flex justify-content-around">
+        <a href="#" class="input_blog"><h5>사진이 포함된 인테리어 보기</h5></a>
+        <a href="#" class="input_cash"><h5>이 스타일의 견적 받아보기</h5></a>
+      </div>      
+</div>
+<!--두번째 카드 끝-->
+
+
+<!--세번째 카드-->
+  <div class="open">
+    <img src="{% static 'l5.jpg'%}" width="100%" height="320" position="absolute">
+      <a href="#pop6" class="open_btn">
+        <img src="{% static '최종돋보기.png'%}">
+      </a>
+  </div>
+
+<!--세번째카드 확대됨-->
+<div class="popup" id="pop6">
+  <a href="#a"><img src="{% static 'close.png' %}" height="50"></a>
+    <img src="{% static 'l5.jpg'%}" width="100%" height="600px">
+      <div class="d-flex justify-content-around">
+        <a href="#" class="input_blog"><h5>사진이 포함된 인테리어 보기</h5></a>
+        <a href="#" class="input_cash"><h5>이 스타일의 견적 받아보기</h5></a>
+      </div>
+</div>
+<!--세번째 카드 끝-->
+
+</div>
+<!--한줄 끝-->
+
+
+
+
+
+<!--한줄 시작-->
+<div class="d-flex justify-content-around">
+<!--첫번째 카드-->
+  <div class="open">
+    <img src="{% static 'l6.jpg'%}" width="100%" height="320" position="absolute">
+      <a href="#pop7" class="open_btn">
+        <img src="{% static '최종돋보기.png'%}">
+      </a>
+  </div>
+
+    <!--첫번째카드 확대됨-->
+
+<div class="popup" id="pop7">
+  <a href="#a"><img src="{% static 'close.png' %}" height="50"></a>
+    <img src="{% static 'l6.jpg'%}" width="100%" height="600px">
+      <div class="d-flex justify-content-around">
+        <a href="#" class="input_blog"><h5>사진이 포함된 인테리어 보기</h5></a>
+        <a href="#" class="input_cash"><h5>이 스타일의 견적 받아보기</h5></a>
+      </div>
+</div>
+<!--첫번째 카드 끝-->
+
+
+<!--두번째 카드-->
+  <div class="open">
+    <img src="{% static 'l7.jpg'%}" width="100%" height="320" position="absolute">
+      <a href="#pop8" class="open_btn">
+        <img src="{% static '최종돋보기.png'%}">
+      </a>
+  </div>
+
+    <!--두번째카드 확대됨-->
+
+<div class="popup" id="pop8">
+  <a href="#a"><img src="{% static 'close.png' %}" height="50"></a>
+    <img src="{% static 'l7.jpg'%}" width="100%" height="600px">
+      <div class="d-flex justify-content-around">
+        <a href="#" class="input_blog"><h5>사진이 포함된 인테리어 보기</h5></a>
+        <a href="#" class="input_cash"><h5>이 스타일의 견적 받아보기</h5></a>
+      </div>      
+</div>
+<!--두번째 카드 끝-->
+
+
+<!--세번째 카드-->
+  <div class="open">
+    <img src="{% static 'l8.jpg'%}" width="100%" height="320" position="absolute">
+      <a href="#pop9" class="open_btn">
+        <img src="{% static '최종돋보기.png'%}">
+      </a>
+  </div>
+
+<!--세번째카드 확대됨-->
+<div class="popup" id="pop9">
+  <a href="#a"><img src="{% static 'close.png' %}" height="50"></a>
+    <img src="{% static 'l8.jpg'%}" width="100%" height="600px">
+      <div class="d-flex justify-content-around">
+        <a href="#" class="input_blog"><h5>사진이 포함된 인테리어 보기</h5></a>
+        <a href="#" class="input_cash"><h5>이 스타일의 견적 받아보기</h5></a>
+      </div>
+</div>
+<!--세번째 카드 끝-->
+
+</div>
+<!--한줄 끝-->
+
+
+
+
+
+<!--한줄 시작-->
+<div class="d-flex justify-content-around">
+<!--첫번째 카드-->
+  <div class="open">
+    <img src="{% static 'l9.jpg'%}" width="100%" height="320" position="absolute">
+      <a href="#pop10" class="open_btn">
+        <img src="{% static '최종돋보기.png'%}">
+      </a>
+  </div>
+
+    <!--첫번째카드 확대됨-->
+
+<div class="popup" id="pop10">
+  <a href="#a"><img src="{% static 'close.png' %}" height="50"></a>
+    <img src="{% static 'l9.jpg'%}" width="100%" height="600px">
+      <div class="d-flex justify-content-around">
+        <a href="#" class="input_blog"><h5>사진이 포함된 인테리어 보기</h5></a>
+        <a href="#" class="input_cash"><h5>이 스타일의 견적 받아보기</h5></a>
+      </div>
+</div>
+<!--첫번째 카드 끝-->
+
+
+<!--두번째 카드-->
+  <div class="open">
+    <img src="{% static 'l10.jpg'%}" width="100%" height="320" position="absolute">
+      <a href="#pop11" class="open_btn">
+        <img src="{% static '최종돋보기.png'%}">
+      </a>
+  </div>
+
+    <!--두번째카드 확대됨-->
+
+<div class="popup" id="pop11">
+  <a href="#a"><img src="{% static 'close.png' %}" height="50"></a>
+    <img src="{% static 'l10.jpg'%}" width="100%" height="600px">
+      <div class="d-flex justify-content-around">
+        <a href="#" class="input_blog"><h5>사진이 포함된 인테리어 보기</h5></a>
+        <a href="#" class="input_cash"><h5>이 스타일의 견적 받아보기</h5></a>
+      </div>      
+</div>
+<!--두번째 카드 끝-->
+
+
+<!--세번째 카드-->
+  <div class="open">
+    <img src="{% static 'l11.jpg'%}" width="100%" height="320" position="absolute">
+      <a href="#pop12" class="open_btn">
+        <img src="{% static '최종돋보기.png'%}">
+      </a>
+  </div>
+
+<!--세번째카드 확대됨-->
+<div class="popup" id="pop12">
+  <a href="#a"><img src="{% static 'close.png' %}" height="50"></a>
+    <img src="{% static 'l11.jpg'%}" width="100%" height="600px">
+      <div class="d-flex justify-content-around">
+        <a href="#" class="input_blog"><h5>사진이 포함된 인테리어 보기</h5></a>
+        <a href="#" class="input_cash"><h5>이 스타일의 견적 받아보기</h5></a>
+      </div>
+</div>
+<!--세번째 카드 끝-->
+
+</div>
+<!--한줄 끝-->
+
+
+
+
+<!--한줄 시작-->
+<div class="d-flex justify-content-around">
+<!--첫번째 카드-->
+  <div class="open">
+    <img src="{% static 'l12.jpg'%}" width="100%" height="320" position="absolute">
+      <a href="#pop13" class="open_btn">
+        <img src="{% static '최종돋보기.png'%}">
+      </a>
+  </div>
+
+    <!--첫번째카드 확대됨-->
+
+<div class="popup" id="pop13">
+  <a href="#a"><img src="{% static 'close.png' %}" height="50"></a>
+    <img src="{% static 'l12.jpg'%}" width="100%" height="600px">
+      <div class="d-flex justify-content-around">
+        <a href="#" class="input_blog"><h5>사진이 포함된 인테리어 보기</h5></a>
+        <a href="#" class="input_cash"><h5>이 스타일의 견적 받아보기</h5></a>
+      </div>
+</div>
+<!--첫번째 카드 끝-->
+
+
+<!--두번째 카드-->
+  <div class="open">
+    <img src="{% static 'l13.jpg'%}" width="100%" height="320" position="absolute">
+      <a href="#pop14" class="open_btn">
+        <img src="{% static '최종돋보기.png'%}">
+      </a>
+  </div>
+
+    <!--두번째카드 확대됨-->
+
+<div class="popup" id="pop14">
+  <a href="#a"><img src="{% static 'close.png' %}" height="50"></a>
+    <img src="{% static 'l13.jpg'%}" width="100%" height="600px">
+      <div class="d-flex justify-content-around">
+        <a href="#" class="input_blog"><h5>사진이 포함된 인테리어 보기</h5></a>
+        <a href="#" class="input_cash"><h5>이 스타일의 견적 받아보기</h5></a>
+      </div>      
+</div>
+<!--두번째 카드 끝-->
+
+
+<!--세번째 카드-->
+  <div class="open">
+    <img src="{% static 'l4.jpg'%}" width="100%" height="320" position="absolute">
+      <a href="#pop15" class="open_btn">
+        <img src="{% static '최종돋보기.png'%}">
+      </a>
+  </div>
+
+<!--세번째카드 확대됨-->
+<div class="popup" id="pop15">
+  <a href="#a"><img src="{% static 'close.png' %}" height="50"></a>
+    <img src="{% static 'l4.jpg'%}" width="100%" height="600px">
+      <div class="d-flex justify-content-around">
+        <a href="#" class="input_blog"><h5>사진이 포함된 인테리어 보기</h5></a>
+        <a href="#" class="input_cash"><h5>이 스타일의 견적 받아보기</h5></a>
+      </div>
+</div>
+<!--세번째 카드 끝-->
+
+</div>
+<!--한줄 끝-->
+
+
+
+<!--한줄 시작-->
+<div class="d-flex justify-content-around">
+<!--첫번째 카드-->
+  <div class="open">
+    <img src="{% static 'l15.jpg'%}" width="100%" height="320" position="absolute">
+      <a href="#pop16" class="open_btn">
+        <img src="{% static '최종돋보기.png'%}">
+      </a>
+  </div>
+
+    <!--첫번째카드 확대됨-->
+
+<div class="popup" id="pop16">
+  <a href="#a"><img src="{% static 'close.png' %}" height="50"></a>
+    <img src="{% static 'l15.jpg'%}" width="100%" height="600px">
+      <div class="d-flex justify-content-around">
+        <a href="#" class="input_blog"><h5>사진이 포함된 인테리어 보기</h5></a>
+        <a href="#" class="input_cash"><h5>이 스타일의 견적 받아보기</h5></a>
+      </div>
+</div>
+<!--첫번째 카드 끝-->
+</div>
+<!--한줄 끝-->
+
+
+</body>
+

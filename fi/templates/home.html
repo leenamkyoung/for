@@ -1,18 +1,235 @@
+
 {% load staticfiles %}
-<!--스새틱 파일 쓰는 테그방법 : img src="{% static 'ddd.jpg' %}" hight=400 alt="00사진"-->
+<!--스태틱 파일 쓰는 테그방법 : img src="{% static 'ddd.jpg' %}" hight=400 alt="00사진"-->
 <head>
+<!--창에 있는 아이콘-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-{% load staticfiles %}
+    <link rel="shortcut icon" type="image⁄x-icon" href="{% static '1.png' %}">
+  
+<!--네이버 지도-->
+  
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=4wzwscpegk"></script>
+
+
+
+<title>마음을디자인하는 포인테리어</title>
 
 <style>
+  @font-face { 
+    /*유토이미지*/
+    font-family: 'BBTreeGB'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGB.woff') format('woff'); font-weight: normal; font-style: normal;}
+    
+  @font-face { 
+    /*유토이미지l*/
+    font-family: 'BBTreeGL'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGL.woff') format('woff'); font-weight: normal; font-style: normal; 
+    }
+  @font-face { 
+    /*나눔 바른펜*/
+    font-family: 'NanumBarunpen'; 
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBarunpen.woff') format('woff'); 
+    font-weight: normal; 
+    font-style: normal;
+  }
+  
   .a {
    background: linear-gradient(to right, #556270, #ff6b6b);
   }
-  .card{
-    weight=""
+
+  .the{
+    transform: scale(1); /*이미지를 1.1배 확대한다*/
+    -webkit-transform: scale(1); /*크롬*/
+    -moz-transform: scale(1); /*파이어 폭스*/
+    -ms-transform: scale(1);
+    -o-transform: scale(1); /*오페라*/
+    transition: all 0.3s ease-in-out; /*부드러운 모션을 위함*/
+    
+  }
+  .the:hover{ /*마우스 올렸을때 얘기*/
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+  }
+
+  .s{
+    width:410;
+    height:350;
+    overflow:hidden;
+  }
+
+  .placecard{
+    border: 0;
+    outline: 0;
+    width:200px; height:200px; border-radius:200px; margin:0 auto; overflow:hidden;
+  }
+
+  .placecard img {
+    height:auto; width:200px;
+  }
+
+  .scale {
+    transform: scale(1);
+     -webkit-transform: scale(1);
+     -moz-transform: scale(1);
+     -ms-transform: scale(1);
+     -o-transform: scale(1);
+     transition: all 0.3s ease-in-out;   /* 부드러운 모션을 위해 추가*/
+  }
+
+  .scale:hover {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+  }
+
+  .textcard{
+     text-align: center;
+  }
+  .btn-group{
+    border: 0;
+    outline: 0;
+    margin: auto;
+    width: 90%;
+  }
+
+  .rm .fla{
+    background-color: #ffcc00;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s
+  }
+  .rm .fla:hover{
+    background-color: #000; 
+  }
+
+  .button {
+    color: #ffcc00;
+  }
+  .text-center h1{ 
+    font-family:'NanumBarunpen';
+    font-weight: bolder;
+  }
+
+  .sigong{
+    font-weight: bolder;
+  }
+
+  .navbarlist{
+    font-family: 'BBTreeGL';
+    font-size: 27px;
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top:6px;
+  }
+
+  .dropdown-menu{
+    font-family: 'BBTreeGL';
+    font-size: 20px;
+  }
+  
+  .BB {
+    width:400px;
+    height:100;
+    background-color:#FD746C;
+    border: none;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px;
+    cursor: pointer;
+    border-radius:30px;
+    text-decoration:none;
+    /**/
+}
+
+  .BB:hover{
+    background-color: #2C3E50;
+    text-decoration:none;
+    color: white;
+  }
+
+  .BB h3{
+    text-decoration:none;
+  }
+  .BB a{
+    text-decoration: underline;
+    text-decoration:none;
+    color:white;
+  }
+
+  .estimate{
+    width:200px;
+    height:60px;
+    background-color:#FD746C;
+    border: none;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px;
+    cursor: pointer;
+    border-radius:30px;
+    text-decoration:none;
+  }
+
+  .estimate :hover{
+    background-color: #2C3E50;
+    color: white;
+  }
+  .estimate a{
+    text-decoration: underline;
+    text-decoration:none;
+    color:white;
+  }
+  .estimate h3{
+    font-family: 'BBTreeGL';
+    text-decoration:none;
+    color:white;
+    text-decoration: underline;
+  }
+
+  .line-height{
+    line-height:10%;
+  }
+
+  .iw_inner{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    height:120px;
+    line-height:0.1em
+  }
+
+  .iw_inner h3{
+    text-align:center;
+    font-family: 'BBTreeGB';
+  }
+
+  .iw_inner p{
+    font-family: 'NanumBarunpen'; 
+  }
+
+  .footer{
+    display:block;
+    color:white;
+    padding-left: 250px;
+    line-height:70%;
+  }
+  .footer p{
+    font-family: 'NanumBarunpen';
+    line-height:0.6em
+  }
+  .footerpic img{
+    align:right;
+    float: right;
   }
 
 </style>
@@ -20,42 +237,66 @@
 </head>
 
 <body>
+    <!--바탕시작-->
+
 
     <!--nav시작-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">for-interior</a>
+        <nav class="navbar navbar-expand-lg navbar-fixed-top navbar-light" style="background-color: #29323c;">
+                <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static '로고왕.png' %}" width="100%" height="75"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
               
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav mr-auto">
+
+                    <div class="navbarlist">
                     <li class="nav-item active">
-                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                      <a class="nav-link" href="#example" style="color:white;"> 전문가의 시공 사례  <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
+                    </div>
+
+                    <div class="navbarlist">
+                    <li class="nav-item dropdown active">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;" >
+                        공간별 인테리어<span class="sr-only">(current)</span>
                       </a>
+
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="{% url 'kitchen' %}">주방</a>
+                        <a class="dropdown-item" href="{% url 'livingroom' %}">거실</a>
+                        <a class="dropdown-item" href="{% url 'door' %}">중문/현관</a>
+                        <a class="dropdown-item" href="{% url 'bed' %}">침실</a>
+                        <a class="dropdown-item" href="{% url 'bath' %}">욕실</a>
+                        <a class="dropdown-item" href="{% url 'dressroom' %}">드레스룸</a>
+                        <a class="dropdown-item" href="{% url 'veranda' %}">베란다/샷시</a>
                       </div>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li>
+                      </div>
+
+                      <div class="navbarlist">
+                      <li class="nav-item dropdown active">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;" >
+                        평수별 인테리어<span class="sr-only">(current)</span>
+                      </a>
+
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'twenty' %}">20PY</a>
+                        <a class="dropdown-item" href="{% url 'thirty' %}">30PY</a>
+                        <a class="dropdown-item" href="{% url 'forty' %}">40PY</a>
+                      </div>
+                      </div>
+
+                      <div class="estimate">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfaOkHiOLS1VnZdJSc2g-OAILB42L3DHlxhqnqgwnwJvqf0fg/viewform?usp=sf_link" target="_blank"></a><h4>견적문의</h4>
+                      </div>
+                  
+
                   </ul>
                 </div>
         </nav>
     <!--nav끝-->
 
-    <!--바탕시작-->
+
 
 <div class="a">
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center">
@@ -69,215 +310,354 @@
         <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
     </div>
 </div>
+
 <!--대표 시공 사례 시작-->
-<br>
-<br>
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light" id="example">
+
+
+
 <h1 class="text-center">전문가의 시공 사례</h1>
 <br>
 <br>
+
 <div class="d-flex justify-content-around">
 <!--1-->
-      <div class="col-md-3">
-            <div class="card mb-4 shadow-sm">
-              <img src="{% static 'big.jpg' %}" height="370">
-            <div class="card-body">
-                <p class="card-text"></p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    
-                    <a href="https://blog.naver.com/lg1044" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">사진이 포함된 글 읽으러 가기</a>
-                    
-                  </div>
-                </div>
-              </div>
-            </div>
+
+    <div class="col-md-3">
+      <div class="card mb-4 shadow-sm">
+       <div class="s">
+        <div class="the">
+          <a href="https://blog.naver.com/lg1044/221588398462" target="_blank">
+          <img src="{% static 'big.jpg' %}" height="350" width="410">
+          </a>
+        </div>
+       </div>
+       <div class="sigong">
+       <p></p>
+       <h5>해당 사진의 시공현장 보러가기</h5>
+       <p></p>
+       </div>
       </div>
+    </div>
+
+
 <!--2-->
       <div class="col-md-3">
-            <div class="card mb-4 shadow-sm">
-              <img src="{% static '거실1.jpg' %}" height="370">
-              <div class="card-body">
-                <p class="card-text"></p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    
-                    <a href="https://blog.naver.com/lg1044/221588398462" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">사진이 포함된 글 읽으러 가기</a>
-                    
-                  </div>
-                </div>
-              </div>
+        <div class="card mb-4 shadow-sm">
+          <div class="s">
+            <div class="the">
+              <a href="https://blog.naver.com/lg1044/221588398462" target="_blank">
+              <img src="{% static '거실1.jpg' %}" height="350" width="410">
+              </a>
             </div>
+          </div>
+          <div class="sigong">
+          <p></p>
+          <h5>해당 사진의 시공현장 보러가기</h5>
+          <p></p>
+          </div>
+         </div> 
       </div>
 <!--3-->
       <div class="col-md-3">
-            <div class="card mb-4 shadow-sm">
-              <img src="{% static '신발장,현관 (1).jpg' %}" height="370">
-              <div class="card-body">
-                <p class="card-text"></p>
-                <div class="d-flex justify-content-between align-items-center">
-                   <div class="btn-group">
-                    
-                    <a href="https://blog.naver.com/lg1044/221582332250" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">사진이 포함된 글 읽으러 가기</a>
-                  
-                  </div>
-                </div>
-              </div>
+        <div class="card mb-4 shadow-sm">
+          <div class="s">
+            <div class="the">
+              <a href="https://blog.naver.com/lg1044/221582332250" target="_blank">
+              <img src="{% static '신발장,현관 (1).jpg' %}" height="350" width="410">
+              </a>
             </div>
-      </div> 
-    </div>
+          </div>
+          <div class="sigong">
+          <p></p>
+          <h5>해당 사진의 시공현장 보러가기</h5>
+          <p></p>
+          </div>
+        </div> 
+      </div>
+
+</div>
+
+      <br>
+<!--4-->
+
+<div class="d-flex justify-content-around">
+
+<div class="col-md-3">
+  <div class="card mb-4 shadow-sm">
+      <div class="s">
+        <div class="the">
+          <a href="https://blog.naver.com/lg1044/221580552390" target="_blank">
+          <img src="{% static '내집.jpg' %}" height="350" width="410">
+          </a>
+        </div>
+      </div>
+      <div class="sigong">
+      <p></p>
+      <h5>해당 사진의 시공현장 보러가기</h5>  
+      <p></p>
+      </div>
+  </div>
+</div>
+
+<!--5-->
+
+<div class="col-md-3">
+  <div class="card mb-4 shadow-sm">
+      <div class="s">
+        <div class="the">
+          <a href="https://blog.naver.com/lg1044/221582992717" target="_blank">
+          <img src="{% static 'dsdsdsd.jpg' %}" height="350" width="410">
+          </a>
+        </div>
+      </div>
+      <div class="sigong">
+      <p></p>
+      <h5>해당 사진의 시공현장 보러가기</h5>
+      <p></p>
+      </div>
+  </div>
+</div>
+<!--6-->
+
+<div class="col-md-3">
+  <div class="card mb-4 shadow-sm">
+      <div class="s">
+        <div class="the">
+          <a href="https://blog.naver.com/lg1044/221588398462" target="_blank">
+          <img src="{% static '주방3.jpg' %}" height="350" width="410">
+          </a>  
+        </div>
+      </div>
+      <div class="sigong">
+      <p></p>
+      <h5>해당 사진의 시공현장 보러가기</h5>
+      <p></p>
+      </div>
+  </div>
+</div>
+
+</div>
+
     <br>
     <br>
     <!--더보기 링크 얘는 포트폴리오로-->
-    <div class="btn-group">
-      <a href="{% url 'portfolio' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" >시공사례 더보러가기</a>
-    </div>
+
+  <div class="BB">
+    <p></p>
+    <a href="https://blog.naver.com/lg1044" target="_blank"><h3>더 많은 시공사례 보려면?</h3></a>
+    <!--마우스 올렸을때 블로그 라고 글씨 바꾸고 싶음-->
+  </div>
+
+
+
     <br>
     <br>
-    <br>
+  
+</div>
       <!--대표 시공 사례 끝-->
 
+      
       <!--공간별 인테리어 시작-->
-
-<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-
 <br>
-<h1 class="text-center"> 공간별 인테리어 보기</h1>
+  <div class="text-center"><h1>공간별 인테리어</h1></div>
 <br>
 <br>
 
     <div class="d-flex justify-content-around">
 
-        <div class="card" style="width: 30px height: 18px ;">
-          <img style="width: 250px;" src="{% static 'bed.png' %}">
-            <div class="card-body">
-              <p class="card-text">침실</p>
-            </div>
+      <div class="placecard">
+        <div class="scale">
+          <a href="{% url 'bed' %}">
+            <img style="width: 300px;" src="{% static '침실11.png' %}">
+          </a>
         </div>
-
-      <div class="card" style="width: 30px height: 18px ;">
-            <img src="{% static 'bathtub.png' %}" alt="..." style="width: 250px;">
-            <div class="card-body">
-              <p class="card-text">욕실</p>
-            </div>
       </div>
 
-      <div class="card" style="width: 30px height: 18px ;">
-            <img src="{% static 'livingroom.png' %}" class="card-img-top" alt="..." style="width: 250px;">
-            <div class="card-body">
-              <p class="card-text">거실</p>
-            </div>
+      <div class="placecard">
+        <div class="scale">
+          <a href="{% url 'bath' %}">
+            <img src="{% static '화장실11.png' %}"  style="width: 300px;">
+          </a>
+        </div>
       </div>
 
-      <div class="card" style="width: 30px height: 18px ;">
-            <img src="{% static '주방.png' %}" class="card-img-top" alt="..." style="width: 250px;">
-            <div class="card-body">
-              <p class="card-text">주방</p>
-            </div>
+      <div class="placecard">
+        <div class="scale">
+          <a href="{% url 'livingroom' %}">
+            <img src="{% static '거실11.png' %}" style="width: 300px;">
+          </a>
+        </div>
       </div>
 
+      <div class="placecard">
+        <div class="scale">
+          <a href="{% url 'kitchen' %}">
+            <img src="{% static '부엌22.png' %}" style="width: 300px;">
+          </a>
+        </div>
+      </div>
+
+      <div class="placecard">
+        <div class="scale">
+          <a href="{% url 'door' %}">
+            <img src="{% static '현관11.png' %}" style="width: 300px;">
+          </a>
+        </div>
+      </div>
+
+      <div class="placecard">
+        <div class="scale">
+          <a href="{% url 'dressroom' %}">
+            <img src="{% static '드레스룸11.png' %}" style="width: 300px;">
+          </a>
+        </div>
+      </div>
+
+      <div class="placecard">
+        <div class="scale">
+          <a href="{% url 'veranda' %}">
+            <img src="{% static '베란다11.png' %}" style="width: 300px;">
+          </a>
+        </div>
+      </div>
     </div>
+<br>
+<br>
 
-      <br>
-
-    <div class="d-flex justify-content-around">
-
-      <div class="card" style="width: 30px height: 18px ;">
-            <img src="{% static 'desk.png' %}" class="card-img-top" alt="..." style="width: 250px;">
-            <div class="card-body">
-              <p class="card-text">자녀방</p>
-            </div>
-      </div>
-
-      <div class="card" style="width: 30px height: 18px ;">
-            <img src="{% static 'door.png' %}" class="card-img-top" alt="..." style="width: 250px;">
-            <div class="card-body">
-              <p class="card-text">현관 & 중문</p>
-            </div>
-      </div>
-
-      <div class="card" style="width: 30px height: 18px ;">
-            <img src="{% static 'costume-clothes.png' %}" class="card-img-top" alt="..." style="width: 250px;">
-            <div class="card-body">
-              <p class="card-text">드레스룸</p>
-            </div>
-      </div>
-
-      <div class="card" style="width: 30px height: 18px ;">
-            <img src="{% static 'balcony.png' %}" class="card-img-top" alt="..." style="width: 250px;">
-            <div class="card-body">
-              <p class="card-text">베란다 및 샷시</p>
-            </div>
-      </div>
-
-    </div>
-
-</div>
 
       <!--공간별 인테리어 끝-->
 
 
 
+
+
+
       <!--평수별 인테리어 시작-->
+<div class="line-height">
+  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">  
+  <br>    
+  <h1 class="text-center">평수별 인테리어</h1>
+  <br>
+</div>
+<div class="line-height">
+<br>
 
-<br>
-<br>
-<h1 class="text-center">Punny headline</h1>
-<br>
-<br>
 <div class="d-flex justify-content-around">
-<!--1-->
-      <div class="col-md-3">
-            <div class="card mb-4 shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
-              </div>
-            </div>
-      </div>
-<!--2-->
-      <div class="col-md-3">
-            <div class="card mb-4 shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
-              </div>
-            </div>
-      </div>
-<!--3-->
-      <div class="col-md-3">
-            <div class="card mb-4 shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
-              </div>
-            </div>
-      </div>
-    
-    </div>
 
+ <div class="col-md-3">
+  <div class="card mb-4 shadow-sm">
+      <div class="s">
+        <div class="the">
+          <a href="{% url 'twenty' %}">
+          <img src="{% static '20PYPY.png' %}" height="350" width="450">
+          </a>
+        </div>
+      </div>  
+  </div>
+</div>
+
+<div class="col-md-3">
+  <div class="card mb-4 shadow-sm">
+      <div class="s">
+        <div class="the">
+          <a href="{% url 'thirty' %}">
+          <img src="{% static '30PYPY.png' %}" height="350" width="450">
+          </a>
+        </div>
+      </div>  
+  </div>
+</div>
+
+<div class="col-md-3">
+  <div class="card mb-4 shadow-sm">
+      <div class="s">
+        <div class="the">
+          <a href="{% url 'forty' %}">
+          <img src="{% static '40PYPY.png' %}" height="350" width="450">
+          </a>
+        </div>
+      </div>  
+  </div>
+</div>
+
+ </div>
       <!--평수별 인테리어 끝-->
 
+
+<!--네이버 지도-->
+<br>
+<div class="line-height">
+  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+  <br>
+  <h1 class="text-center">찾아오는길</h1>
+  <br>
+</div>
+</div>
+<div id="map" style="width:100%;height:500px;"></div>
+
+<script>
+var HOME_PATH = window.HOME_PATH || '.';
+
+var cityhall = new naver.maps.LatLng(37.2607311,127.06395),
+    map = new naver.maps.Map('map', {
+        center: cityhall.destinationPoint(0, 500),
+        zoom: 15
+    }),
+    marker = new naver.maps.Marker({
+        map: map,
+        position: cityhall
+    });
+
+var contentString= [
+        '<div class="iw_inner">',
+        '   <h3>포 인테리어</h3><br />',
+        '   <p>경기도 수원시 영통구 매영로230 (원천동366-3)</p><br />',
+        '       <p>031-211-1044</p><br /><br />',
+        '       <p><a href="http://for-interior.com" target="_blank">http://for-interior.com/</p></a><br />',
+        '       <p><a href="https://blog.naver.com/lg1044" target="_blank">https://blog.naver.com/lg1044</p></a><br />',
+        '</div>'
+    ].join('');
+
+var infowindow = new naver.maps.InfoWindow({
+    content: contentString
+});
+
+naver.maps.Event.addListener(marker, "click", function(e) {
+    if (infowindow.getMap()) {
+        infowindow.close();
+    } else {
+        infowindow.open(map, marker);
+    }
+});
+
+infowindow.open(map, marker);
+</script>
+<!--네이버 지도 끝-->
+
+<!--footer-->
+
+<footer class="navbar navbar-expand-lg navbar-fixed-top navbar-light" style="background-color: #29323c;">
+  <div class="footer">
+  <br>
+  <br>
+  <br>
+  <p>주식회사 포인테리어 대표이사: 김영애</p>
+  <p>주소: 경기도 수원시 영통구 매영로230</p>
+  <p>상담전화: 211-1044</p>
+  <p>공식블로그: blog.naver.com/lg1044</p>
+  <br>
+  </div>
+
+  <div class="footerpic">
+    <img src="{%static '로고왕.png'%}" width="100%" height="75" alt="로고">
+  </div>
+  <br>
+
+</footer>
+
+
+<!--footer 끝-->
 
       <!--바탕끝-->
 </body>
