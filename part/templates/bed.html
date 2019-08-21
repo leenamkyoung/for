@@ -5,7 +5,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
     <style>
 
   @font-face { 
@@ -32,26 +33,19 @@
       margin: 0 auto;
     }
 
-
     .open{
       padding-right:10px;
       padding-bottom:10px;
       width: 380px;
       height: 100%;
-      position: relative;
-    }
-    
-    .open_btn img{
-      width:60px;
-      height:60px;
-      border:10px;
-      margin-left: auto;
-      position: absolute;
-      top: 10;
-      bottom: 0;
-      left: 0;
-      right: 20;
       z-index: 5;
+      margin:0 auto;
+    }
+
+    .open:hover{
+      width:380;
+      height:100%;
+      opacity: 0.85;
     }
 
     .popup{
@@ -166,6 +160,22 @@
     padding-top:40px;
   }     
 
+  #topMenu .menuLink_click{
+    width: 154px;
+    height: 100px;
+    line-height: 100PX;
+    border-bottom-color: #FF6B6B;
+    border-bottom-style:solid; 
+    color: #FF6B6B;
+    padding-bottom:18px;
+    padding-top:40px;
+    border-bottom-width:5px;
+    text-decoration: none;
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
   .navbarlist{
     font-family: 'BBTreeGL';
     font-size: 27px;
@@ -179,7 +189,7 @@
     font-size: 20px;
   }
   
-    
+
   .estimate{
     width:200px;
     height:60px;
@@ -194,19 +204,22 @@
     cursor: pointer;
     border-radius:30px;
     text-decoration:none;
-    text-align: center;
-    line-height:10px;
   }
 
   .estimate:hover{
     background-color: #2C3E50;
-    text-decoration:none;
     color: white;
-
   }
-
-  .estimate h3{
+  .estimate a{
+    text-decoration: underline;
     text-decoration:none;
+    color:white;
+  }
+  .estimate h3{
+    font-family: 'BBTreeGL';
+    text-decoration:none;
+    color:white;
+    text-decoration: underline;
   }
 
 
@@ -263,7 +276,7 @@
                       </div>
 
                       <div class="estimate">
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfaOkHiOLS1VnZdJSc2g-OAILB42L3DHlxhqnqgwnwJvqf0fg/viewform?usp=sf_link" target="_blank"></a><h4>견적문의</h4>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfaOkHiOLS1VnZdJSc2g-OAILB42L3DHlxhqnqgwnwJvqf0fg/viewform?usp=sf_link" target="_blank"><h4>견적문의</h4></a>
                       </div>
                   
 
@@ -291,7 +304,7 @@
 <nav id="topMenu">
 
     <ul>
-            <li><a class="menuLink" href="{% url 'bed'%}"><h4>침실</h4></a></li>
+            <li><a class="menuLink_click" href="{% url 'bed'%}"><h4>침실</h4></a></li>
             <li><a class="menuLink" href="{% url 'bath'%}"><h4>욕실</h4></a></li>
             <li><a class="menuLink" href="{% url 'livingroom'%}"><h4>거실</h4></a></li>
             <li><a class="menuLink" href="{% url 'kitchen'%}"><h4>주방/다이닝룸</h4></a></li>
@@ -309,10 +322,9 @@
 <div class="d-flex justify-content-around">
 <!--첫번째 카드-->
   <div class="open">
-    <img src="{% static 'r1.jpg'%}" width="100%" height="320" position="absolute">
-      <a href="#pop1" class="open_btn">
-        <img src="{% static '최종돋보기.png'%}">
-      </a>
+    <a href="#pop1" class="open_btn">
+        <img src="{% static 'r1.jpg'%}" width="100%" height="320" position="absolute">
+    </a>
   </div>
 
     <!--첫번째카드 확대됨-->
@@ -330,10 +342,9 @@
 
 <!--두번째 카드-->
   <div class="open">
-    <img src="{% static 'r2.jpg'%}" width="100%" height="320" position="absolute">
-      <a href="#pop2" class="open_btn">
-        <img src="{% static '최종돋보기.png'%}">
-      </a>
+    <a href="#pop2" class="open_btn">
+        <img src="{% static 'r2.jpg'%}" width="100%" height="320" position="absolute">
+    </a>
   </div>
 
     <!--두번째카드 확대됨-->
@@ -351,10 +362,9 @@
 
 <!--세번째 카드-->
   <div class="open">
-    <img src="{% static 'r3.jpg'%}" width="100%" height="320" position="absolute">
-      <a href="#pop3" class="open_btn">
-        <img src="{% static '최종돋보기.png'%}">
-      </a>
+    <a href="#pop3" class="open_btn">
+        <img src="{% static 'r3.jpg'%}" width="100%" height="320" position="absolute">
+    </a>
   </div>
 
 <!--세번째카드 확대됨-->
@@ -377,10 +387,9 @@
 <div class="d-flex justify-content-around">
 <!--첫번째 카드-->
   <div class="open">
-    <img src="{% static 'r4.jpg'%}" width="100%" height="320" position="absolute">
-      <a href="#pop4" class="open_btn">
-        <img src="{% static '최종돋보기.png'%}">
-      </a>
+    <a href="#pop4" class="open_btn">
+        <img src="{% static 'r4.jpg'%}" width="100%" height="320" position="absolute">
+    </a>
   </div>
 
     <!--첫번째카드 확대됨-->
@@ -397,11 +406,10 @@
 
 
 <!--두번째 카드-->
-  <div class="open">
-    <img src="{% static 'r5.jpg'%}" width="100%" height="320" position="absolute">
-      <a href="#pop5" class="open_btn">
-        <img src="{% static '최종돋보기.png'%}">
-      </a>
+<div class="open">
+    <a href="#pop5" class="open_btn">
+        <img src="{% static 'r5.jpg'%}" width="100%" height="320" position="absolute">
+    </a>
   </div>
 
     <!--두번째카드 확대됨-->
@@ -419,10 +427,9 @@
 
 <!--세번째 카드-->
   <div class="open">
-    <img src="{% static 'r6.jpg'%}" width="100%" height="320" position="absolute">
-      <a href="#pop6" class="open_btn">
-        <img src="{% static '최종돋보기.png'%}">
-      </a>
+    <a href="#pop6" class="open_btn">
+        <img src="{% static 'r6.jpg'%}" width="100%" height="320" position="absolute">
+    </a>
   </div>
 
 <!--세번째카드 확대됨-->
@@ -447,10 +454,9 @@
 <div class="d-flex justify-content-around">
 <!--첫번째 카드-->
   <div class="open">
-    <img src="{% static 'r7.jpg'%}" width="100%" height="320" position="absolute">
-      <a href="#pop7" class="open_btn">
-        <img src="{% static '최종돋보기.png'%}">
-      </a>
+    <a href="#pop7" class="open_btn">
+        <img src="{% static 'r7.jpg'%}" width="100%" height="320" position="absolute">
+    </a>
   </div>
 
     <!--첫번째카드 확대됨-->
@@ -468,10 +474,9 @@
 
 <!--두번째 카드-->
   <div class="open">
-    <img src="{% static 'r8.jpg'%}" width="100%" height="320" position="absolute">
-      <a href="#pop8" class="open_btn">
-        <img src="{% static '최종돋보기.png'%}">
-      </a>
+    <a href="#pop8" class="open_btn">
+        <img src="{% static 'r8.jpg'%}" width="100%" height="320" position="absolute">
+    </a>
   </div>
 
     <!--두번째카드 확대됨-->
@@ -489,10 +494,9 @@
 
 <!--세번째 카드-->
   <div class="open">
-    <img src="{% static 'r9.jpg'%}" width="100%" height="320" position="absolute">
-      <a href="#pop9" class="open_btn">
-        <img src="{% static '최종돋보기.png'%}">
-      </a>
+    <a href="#pop9" class="open_btn">
+        <img src="{% static 'r9.jpg'%}" width="100%" height="320" position="absolute">
+    </a>
   </div>
 
 <!--세번째카드 확대됨-->
@@ -517,10 +521,9 @@
 <div class="d-flex justify-content-around">
 <!--첫번째 카드-->
   <div class="open">
-    <img src="{% static 'r10.jpg'%}" width="100%" height="320" position="absolute">
-      <a href="#pop10" class="open_btn">
-        <img src="{% static '최종돋보기.png'%}">
-      </a>
+    <a href="#pop10" class="open_btn">
+        <img src="{% static 'r10.jpg'%}" width="100%" height="320" position="absolute">
+    </a>
   </div>
 
     <!--첫번째카드 확대됨-->
@@ -538,10 +541,9 @@
 
 <!--두번째 카드-->
   <div class="open">
-    <img src="{% static 'r11.jpg'%}" width="100%" height="320" position="absolute">
-      <a href="#pop11" class="open_btn">
-        <img src="{% static '최종돋보기.png'%}">
-      </a>
+    <a href="#pop11" class="open_btn">
+        <img src="{% static 'r11.jpg'%}" width="100%" height="320" position="absolute">
+    </a>
   </div>
 
     <!--두번째카드 확대됨-->
@@ -559,10 +561,9 @@
 
 <!--세번째 카드-->
   <div class="open">
-    <img src="{% static 'r12.jpg'%}" width="100%" height="320" position="absolute">
-      <a href="#pop12" class="open_btn">
-        <img src="{% static '최종돋보기.png'%}">
-      </a>
+    <a href="#pop12" class="open_btn">
+        <img src="{% static 'r12.jpg'%}" width="100%" height="320" position="absolute">
+    </a>
   </div>
 
 <!--세번째카드 확대됨-->

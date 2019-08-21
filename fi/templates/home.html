@@ -9,6 +9,8 @@
 <!--네이버 지도-->
   
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
   <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=4wzwscpegk"></script>
@@ -33,7 +35,7 @@
     font-weight: normal; 
     font-style: normal;
   }
-  
+
   .a {
    background: linear-gradient(to right, #556270, #ff6b6b);
   }
@@ -119,13 +121,16 @@
     font-weight: bolder;
   }
 
+
   .navbarlist{
     font-family: 'BBTreeGL';
     font-size: 27px;
     padding-left: 35px;
     padding-right: 35px;
     padding-top:6px;
+
   }
+
 
   .dropdown-menu{
     font-family: 'BBTreeGL';
@@ -178,11 +183,13 @@
     cursor: pointer;
     border-radius:30px;
     text-decoration:none;
+    float: right;
   }
 
-  .estimate :hover{
+  .estimate:hover{
     background-color: #2C3E50;
     color: white;
+    float: right;
   }
   .estimate a{
     text-decoration: underline;
@@ -239,62 +246,46 @@
 <body>
     <!--바탕시작-->
 
-
     <!--nav시작-->
-        <nav class="navbar navbar-expand-lg navbar-fixed-top navbar-light" style="background-color: #29323c;">
-                <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static '로고왕.png' %}" width="100%" height="75"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-              
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
+    <nav class="navbar navbar-expand-lg navbar-fixed-top navbar-light" style="background-color: #29323c;">
+      <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static '로고왕.png' %}" width="100%" height="75"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
 
-                    <div class="navbarlist">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="#example" style="color:white;"> 전문가의 시공 사례  <span class="sr-only">(current)</span></a>
-                    </li>
-                    </div>
+          <div class="navbarlist">
+          <li class="nav-item active">
+            <a class="nav-link" href="#a" style="color:white;">전문가의 시공 사례<span class="sr-only">(current)</span></a>
+          </li>
+          </div>
 
-                    <div class="navbarlist">
-                    <li class="nav-item dropdown active">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;" >
-                        공간별 인테리어<span class="sr-only">(current)</span>
-                      </a>
+          <div class="navbarlist">
+          <li class="nav-item active">
+            <a class="nav-link" href="#b" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;" >
+              공간별 인테리어<span class="sr-only">(current)</span>
+            </a>
+          </div>
 
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{% url 'kitchen' %}">주방</a>
-                        <a class="dropdown-item" href="{% url 'livingroom' %}">거실</a>
-                        <a class="dropdown-item" href="{% url 'door' %}">중문/현관</a>
-                        <a class="dropdown-item" href="{% url 'bed' %}">침실</a>
-                        <a class="dropdown-item" href="{% url 'bath' %}">욕실</a>
-                        <a class="dropdown-item" href="{% url 'dressroom' %}">드레스룸</a>
-                        <a class="dropdown-item" href="{% url 'veranda' %}">베란다/샷시</a>
-                      </div>
-                      </div>
+            <div class="navbarlist">
+            <li class="nav-item active">
+            <a class="nav-link" href="#c" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;" >
+              평수별 인테리어<span class="sr-only">(current)</span>
+            </a>
 
-                      <div class="navbarlist">
-                      <li class="nav-item dropdown active">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;" >
-                        평수별 인테리어<span class="sr-only">(current)</span>
-                      </a>
+            </div>
 
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{% url 'twenty' %}">20PY</a>
-                        <a class="dropdown-item" href="{% url 'thirty' %}">30PY</a>
-                        <a class="dropdown-item" href="{% url 'forty' %}">40PY</a>
-                      </div>
-                      </div>
+            <div class="estimate">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfaOkHiOLS1VnZdJSc2g-OAILB42L3DHlxhqnqgwnwJvqf0fg/viewform?usp=sf_link" target="_blank"><h4>견적문의</h4></a>
+            </div>
+        
 
-                      <div class="estimate">
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfaOkHiOLS1VnZdJSc2g-OAILB42L3DHlxhqnqgwnwJvqf0fg/viewform?usp=sf_link" target="_blank"></a><h4>견적문의</h4>
-                      </div>
-                  
-
-                  </ul>
-                </div>
-        </nav>
-    <!--nav끝-->
+        </ul>
+      </div>
+</nav>
+<!--nav끝-->
 
 
 
@@ -312,7 +303,7 @@
 </div>
 
 <!--대표 시공 사례 시작-->
-<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light" id="example">
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light" id="a">
 
 
 
@@ -459,7 +450,7 @@
 
       
       <!--공간별 인테리어 시작-->
-<br>
+<br id="b">
   <div class="text-center"><h1>공간별 인테리어</h1></div>
 <br>
 <br>
@@ -534,7 +525,7 @@
 
 
       <!--평수별 인테리어 시작-->
-<div class="line-height">
+<div class="line-height" id="c">
   <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">  
   <br>    
   <h1 class="text-center">평수별 인테리어</h1>
